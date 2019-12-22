@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f7f7f7 !important;
+}
+
+.navbar {
+    background: #a078bd;
+}
+
+.card {
+    background-color: #fff;
+    border: none !important;
+    border-radius: .25rem;
+    -webkit-box-shadow: 10px 10px 59px -16px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 10px 10px 59px -16px rgba(0, 0, 0, 0.43);
+    box-shadow: 10px 10px 59px -16px rgba(0, 0, 0, 0.43);
+    max-width: 33rem;
+    background: #fff;
+    min-height: 20rem;
+}
+
+.btn-primary {
+    background: #1D3461 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.btn-secondary {
+    background: #CF4D6F !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.btn.focus,
+.btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: none !important;
+}
+
+.form-control {
+    border: 1px solid #ced4da !important;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.modal-header {
+    border-bottom: none !important;
+}
+
+.modal-footer {
+    border-top: none !important;
+}
+
+h6 {
+    font-weight: normal !important;
+    font-size: 1.1rem;
+}
