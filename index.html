@@ -29,13 +29,56 @@
 
     <div class="mt-5">
         <div class="card card mx-auto p-5">
-            <div id="todo-summary"></div>
+            <div id="todo-summary" class="mb-3"></div>
 
             <div id="todo-list"></div>
         </div>
+
+        <div class="btn-div mt-4 mx-auto">
+            <div class="text-md-right">
+                <button id="remove-all" class="btn btn-danger mr-3">Remove All Todos</button>
+                <button class="btn-primary btn" data-toggle="modal"
+                data-target="#addTodoModal">Add Todo</button>
+            </div>
+        </div>
     </div>
 
-  
+
+    <!-- Add Todo Modal -->
+    <div class="modal fade" id="addTodoModal" tabindex="-1" role="dialog" aria-labelledby="addTodoModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-10 text-center pt-4">
+                                <h5 class="modal-title" id="addTodoModal">Add New Todo</h5>
+                            </div>
+                            <div class="col-1">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                            </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form id="addTodoForm" class="text-center mt-3 mb-5">
+                        <input name="addTodo" class="form-control w-75 mx-auto" type="text" placeholder="Enter Todo"
+                            aria-label="addTodo" required>
+                        <button type="submit" class="btn btn-primary w-75 my-3">Submit</button>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+
 
 
 

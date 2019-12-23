@@ -12,12 +12,13 @@ body {
     background-color: #fff;
     border: none !important;
     border-radius: .25rem;
-    -webkit-box-shadow: 10px 10px 59px -16px rgba(0, 0, 0, 0.43);
-    -moz-box-shadow: 10px 10px 59px -16px rgba(0, 0, 0, 0.43);
-    box-shadow: 10px 10px 59px -16px rgba(0, 0, 0, 0.43);
+    -webkit-box-shadow: 5px 0px 24px -12px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 5px 0px 24px -12px rgba(0, 0, 0, 0.43);
+    box-shadow: 5px 0px 24px -12px rgba(0, 0, 0, 0.43);
     max-width: 33rem;
     background: #fff;
-    min-height: 20rem;
+    max-height: 23rem;
+    overflow-y: auto;
 }
 
 .btn-primary {
@@ -63,4 +64,8 @@ body {
 h6 {
     font-weight: normal !important;
     font-size: 1.1rem;
+}
+
+.btn-div {
+    max-width: 33rem;
 }

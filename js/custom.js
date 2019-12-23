@@ -1,5 +1,5 @@
 // list of todos
-const todo = [{
+const todos = [{
         text: 'Go to Work',
         completed: true
     },
@@ -8,7 +8,7 @@ const todo = [{
         completed: true
     },
     {
-        todo: 'Eat food',
+        text: 'Eat food',
         completed: false
     },
     {
@@ -23,28 +23,60 @@ const todo = [{
         text: 'Sleep',
         completed: false
     }
-]
+];
+
+const filter = {
+    searchText: ''
+}
 
 
 // Function to render todo
 const renderTodo = function (todo) {
+
+    document.querySelector('#todo-list').innerHTML = ''
+
+    
+
+    const incompletedTodo = todo.filter((todo) => {
+        return !todo.completed
+    });
+
+    const summary = document.createElement('h4');
+    summary.textContent = `You have ${incompletedTodo.length} todos left`;
+    document.querySelector('#todo-summary').appendChild(summary);
+
     todo.forEach((todo, index) => {
 
         // adding todos to the DOM
-        const todoEl = document.querySelector('#todo-list');
-        const todoItem = document.createElement('p');
-        todoItem.textContent = `${index + 1}  ${todo.text}`;
+        const todoEl = document.createElement('p');
 
-        todoEl.appendChild(todoItem);
+        todoEl.textContent = `${index + 1}  ${todo.text}`;
+
+        document.querySelector('#todo-list').appendChild(todoEl);
+
     });
 
 
 }
 
-renderTodo(todo);
+renderTodo(todos);
 
 
 // Input event on the input field to filter todo
 document.querySelector('#searchText').addEventListener('input', (e) => {
-    console.log(e.target.value)
+    filter.searchText = e.target.value;
+});
+
+// submit event on the add todo form
+document.querySelector('#addTodoForm').addEventListener('submit', (e) => {
+
+    e.preventDefault();
+    todos.push({
+        text: e.target.addTodo.value,
+        completed: false
+    })
+    
+    renderTodo(todos);
+
+    e.target.addTodo.value = '';
 });
