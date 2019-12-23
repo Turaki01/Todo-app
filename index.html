@@ -28,18 +28,30 @@
     </nav>
 
     <div class="mt-5">
-        <div class="card card mx-auto p-5">
-            <div id="todo-summary" class="mb-3"></div>
 
-            <div id="todo-list"></div>
+        <!-- list of todos -->
+        <div id="hasTodo">
+            <div class="card card mx-auto p-5">
+                <div id="todo-summary" class="mb-3"></div>
+
+                <div id="todo-list"></div>
+            </div>
+
+            <div class="btn-div mt-4 mx-auto">
+                <div class="text-md-right">
+                    <button id="remove-all" class="btn btn-danger mr-3">Remove All Todos</button>
+                    <button class="btn-primary btn" data-toggle="modal" data-target="#addTodoModal">Add Todo</button>
+                </div>
+            </div>
         </div>
 
-        <div class="btn-div mt-4 mx-auto">
-            <div class="text-md-right">
-                <button id="remove-all" class="btn btn-danger mr-3">Remove All Todos</button>
-                <button class="btn-primary btn" data-toggle="modal"
-                data-target="#addTodoModal">Add Todo</button>
-            </div>
+        <!-- empty state -->
+        <div id="emptyState" class="text-center">
+            <img src="img/emptyState.png" alt="">
+
+            <h4 class="pt-4">You don't have any Todo</h4>
+
+            <button class="btn-primary btn mt-3" data-toggle="modal" data-target="#addTodoModal">Add Todo</button>
         </div>
     </div>
 

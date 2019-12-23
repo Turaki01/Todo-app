@@ -1,5 +1,5 @@
 // list of todos
-const todos = [{
+let todos = [{
         text: 'Go to Work',
         completed: true
     },
@@ -33,6 +33,16 @@ const filter = {
 // Function to render todo
 const renderTodo = function (todos, filter) {
 
+    if (todos.length > 0) {
+        document.querySelector('#hasTodo').classList.add('d-block');
+        document.querySelector('#emptyState').classList.add('d-none');
+        document.querySelector('#emptyState').classList.remove('d-block');
+    } else {
+        document.querySelector('#hasTodo').classList.add('d-none');
+        document.querySelector('#emptyState').classList.add('d-block');
+        document.querySelector('#hasTodo').classList.remove('d-block');
+    }
+
     const filterTodo = todos.filter((todo) => {
         return todo.text.toLowerCase().includes(filter.searchText.toLowerCase());
     });
@@ -43,7 +53,7 @@ const renderTodo = function (todos, filter) {
 
     document.querySelector('#todo-summary').innerHTML = '';
 
-    
+
 
     const incompletedTodo = filterTodo.filter((todo) => {
         return !todo.completed
@@ -84,8 +94,17 @@ document.querySelector('#addTodoForm').addEventListener('submit', (e) => {
         text: e.target.addTodo.value,
         completed: false
     })
-    
+
     renderTodo(todos, filter);
 
     e.target.addTodo.value = '';
+});
+
+// remove all todo
+document.querySelector('#remove-all').addEventListener('click', (e) => {
+    if (e) {
+        todos = [];
+    }
+
+    renderTodo(todos, filter);
 });
