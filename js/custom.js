@@ -1,32 +1,15 @@
 // list of todos
-let todos = [{
-        text: 'Go to Work',
-        completed: true
-    },
-    {
-        text: 'Attend Stand up',
-        completed: true
-    },
-    {
-        text: 'Eat food',
-        completed: false
-    },
-    {
-        text: 'Commit Code',
-        completed: false
-    },
-    {
-        text: 'Close from work',
-        completed: false
-    },
-    {
-        text: 'Sleep',
-        completed: false
-    }
-];
+let todos = [];
 
 const filter = {
     searchText: ''
+}
+
+
+const todoJSON = localStorage.getItem('todos');
+
+if(todoJSON !== null) {
+    todos = JSON.parse(todoJSON);
 }
 
 
@@ -43,6 +26,7 @@ const renderTodo = function (todos, filter) {
         document.querySelector('#hasTodo').classList.remove('d-block');
     }
 
+    //filter function
     const filterTodo = todos.filter((todo) => {
         return todo.text.toLowerCase().includes(filter.searchText.toLowerCase());
     });
@@ -60,7 +44,7 @@ const renderTodo = function (todos, filter) {
     });
 
     const summary = document.createElement('h4');
-    summary.textContent = `You have ${incompletedTodo.length} todos left`;
+    summary.textContent = `You have ${incompletedTodo.length} todo${incompletedTodo.length > 1 ? 's' : ''} left`;
     document.querySelector('#todo-summary').appendChild(summary);
 
     filterTodo.forEach((todo, index) => {
@@ -93,7 +77,10 @@ document.querySelector('#addTodoForm').addEventListener('submit', (e) => {
     todos.push({
         text: e.target.addTodo.value,
         completed: false
-    })
+    });
+
+    localStorage.setItem('todos', JSON.stringify(todos));
+
 
     renderTodo(todos, filter);
 
@@ -104,6 +91,7 @@ document.querySelector('#addTodoForm').addEventListener('submit', (e) => {
 document.querySelector('#remove-all').addEventListener('click', (e) => {
     if (e) {
         todos = [];
+        localStorage.removeItem('todos');
     }
 
     renderTodo(todos, filter);
